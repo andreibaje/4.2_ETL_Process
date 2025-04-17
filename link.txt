@@ -1,0 +1,2 @@
+Here is a link towards the directory online:
+https://github.com/andreibaje/4.2_ETL_Process
