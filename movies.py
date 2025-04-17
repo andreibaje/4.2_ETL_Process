@@ -6,8 +6,8 @@ output_folder = "result"
 os.makedirs(output_folder, exist_ok=True)
 df = pd.read_csv("movies.csv")
 df.columns = df.columns.str.strip().str.lower()
-df["budget"] = pd.to_numeric(df["budget"].replace('[\$,]', '', regex=True), errors='coerce')
-df["box_office"] = pd.to_numeric(df["box_office"].replace('[\$,]', '', regex=True), errors='coerce')
+df["budget"] = pd.to_numeric(df["budget"].replace('[\$,]', ''), errors='coerce')
+df["box_office"] = pd.to_numeric(df["box_office"].replace('[\$,]', ''), errors='coerce')
 df["bilanț"] = df["box_office"] - df["budget"]
 for country in countries:
     df_country = df[df["country"] == country]
@@ -19,4 +19,4 @@ for country in countries:
     path_file = os.path.join(output_folder, name_file)
     top_10.to_excel(path_file, index=False)
 
-print("The files have been made in the folder 'output'.")
+print("The files have been made in the folder 'results'.")
